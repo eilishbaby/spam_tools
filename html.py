@@ -16,11 +16,10 @@ def send_mail(receiver_email, spoofed_email, spoofed_name, message, subject):
         msg['From'] = f"{spoofed_name} <{spoofed_email}>"
         msg['To'] = receiver_email
         msg['Subject'] = subject
-        with open('message.html', 'r') as f:
+        with open('Windstream.htm', 'r') as f:
             message = f.read()
         body = message
         msg.attach(MIMEText(body, 'html'))
-        msg.add_header('reply-to',REPLY_TO_ADDRESS)
         # Get SMTP settings from config file
         smtp_host = config.get('SMTP', 'host')
         smtp_port = config.getint('SMTP', 'port')
@@ -45,11 +44,11 @@ message = ''
 subject = input("Enter subject:")
 while True:
     # Open the file containing emails
-    with open('emails.txt', 'r') as f:
+    with open('Warbaby4.txt', 'r') as f:
         for line in f:
             # Split the line to get the email address
             email = line.strip()
             # Ask for other required inputs
             # Invoke send_mail to send email
             send_mail(email, spoofed_email, spoofed_name, message, subject)
-            time.sleep(10)
+            time.sleep(1)
