@@ -11,7 +11,7 @@ def extract_emails(input_file):
     return emails
 
 def write_emails(emails):
-    with open('arranged.txt', 'w') as file:
+    with open('biglist.txt', 'w') as file:
         for email in emails:
             file.write(email + '\n')
 
@@ -21,7 +21,7 @@ def main():
     emails = extract_emails(input_file)
     write_emails(emails)
 
-    print("Emails extracted and written to arranged.txt.")
+    print("Emails extracted and written to biglist.txt.")
 
 if __name__ == '__main__':
     main()
