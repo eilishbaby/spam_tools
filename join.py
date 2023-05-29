@@ -9,8 +9,8 @@ def merge_files(file1, file2, output_file):
     print(f"Files '{file1}' and '{file2}' merged and appended to '{output_file}'.")
 
 
-file1 = 'wind1.txt'
-file2 = 'wind2.txt'
-output_file = 'allofthem.txt'
+file1 = 'standlist.txt'
+file2 = 'wind7.txt'
+output_file = 'wind8.txt'
 
 merge_files(file1, file2, output_file)
