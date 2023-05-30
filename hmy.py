@@ -4,7 +4,7 @@ def remove_duplicates(file_name):
 
     unique_emails = list(set(emails))
 
-    with open('clean.txt', 'a') as output_file:
+    with open('cleaner.txt', 'a') as output_file:
         for email in unique_emails:
             output_file.write(email + '\n')
 
