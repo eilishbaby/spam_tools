@@ -1,16 +1,31 @@
-def merge_files(file1, file2, output_file):
-    with open(file1, 'r') as f1, open(file2, 'r') as f2, open(output_file, 'a') as output:
-        content1 = f1.read()
-        content2 = f2.read()
+def collect_emails(num_emails):
+    email_contents = []
+    for i in range(num_emails):
+        file_path = input(f"Enter the file path for email {i + 1}: ")
+        try:
+            with open(file_path, 'r') as file:
+                email_contents.append(file.read())
+        except FileNotFoundError:
+            print(f"File not found: {file_path}")
+            return None
+    return email_contents
 
-        output.write(content1)
-        output.write(content2)
+def append_to_file(file_path, email_contents):
+    try:
+        with open(file_path, 'a') as file:
+            for content in email_contents:
+                file.write(content)
+                file.write('\n---\n')  # Separator between emails
+        print(f"Emails successfully appended to {file_path}")
+    except IOError:
+        print(f"An error occurred while appending emails to {file_path}")
 
-    print(f"Files '{file1}' and '{file2}' merged and appended to '{output_file}'.")
+def main():
+    num_emails = 5
+    file_path = "stream_mail.txt"
+    email_contents = collect_emails(num_emails)
+    if email_contents:
+        append_to_file(file_path, email_contents)
 
-
-file1 = 'standlist.txt'
-file2 = 'wind7.txt'
-output_file = 'wind8.txt'
-
-merge_files(file1, file2, output_file)
+if __name__ == '__main__':
+    main()

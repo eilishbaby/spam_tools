@@ -11,7 +11,7 @@ def extract_emails(input_file):
     return emails
 
 def write_emails(emails):
-    with open('wind9.txt', 'w') as file:
+    with open('stream10.txt', 'w') as file:
         for email in emails:
             file.write(email + '\n')
 
@@ -21,7 +21,7 @@ def main():
     emails = extract_emails(input_file)
     write_emails(emails)
 
-    print("Emails extracted and written to wind9.txt.")
+    print("Emails extracted and written to stream10.txt.")
 
 if __name__ == '__main__':
     main()
